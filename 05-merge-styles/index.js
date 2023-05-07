@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const wayStyles = path.join(__dirname, 'styles');
-let arr = [];
+let arrFromCss = [];
 
 fs.readdir(wayStyles, (err, files) => {
   if (err) {
@@ -20,9 +20,9 @@ fs.readdir(wayStyles, (err, files) => {
             if (err) {
               console.error(err);
             }
-            arr.push(Buffer.from(file).toString().trim()); 
+            arrFromCss.push(Buffer.from(file).toString().trim()); 
             
-            fs.writeFile(path.join(__dirname, 'project-dist', 'bundle.css'), arr.join(''), (err) => {
+            fs.writeFile(path.join(__dirname, 'project-dist', 'bundle.css'), arrFromCss.join(''), (err) => {
               if (err) {
                 console.error(err);
                 return;
