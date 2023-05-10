@@ -22,7 +22,7 @@ fs.readdir(wayStyles, (err, files) => {
             }
             arrFromCss.push(Buffer.from(file).toString().trim()); 
             
-            fs.writeFile(path.join(__dirname, 'project-dist', 'bundle.css'), arrFromCss.join(''), (err) => {
+            fs.writeFile(path.join(__dirname, 'project-dist', 'bundle.css'), arrFromCss.join('\n'), (err) => {
               if (err) {
                 console.error(err);
                 return;
